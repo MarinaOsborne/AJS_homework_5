@@ -1,27 +1,33 @@
-import Cell from './field_generator.js';
-import CurrentCell from './logic.js';
+import validateCard from './luhn.js';
+import getCardType from './cardtype.js';
+import showCard from './showcard.js';
 
-let random = Math.floor(Math.random() * 16);
-const cell = new Cell(random);
-cell.activateCell(random);
-setInterval(() => {
-  cell.deactivateCell(random);
-  const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
-  const filteredArr = arr.filter((item) => item !== random);
-  const activeCell = filteredArr[Math.floor(Math.random() * 15)];
-  cell.activateCell(activeCell);
-  random = activeCell;
-}, 1000);
+const button = document.querySelector('.val_button');
+const input = document.getElementById('input');
+const arr = Array.from(document.querySelectorAll('.card'));
+const validation = document.querySelector('.validation');
+const err = document.createElement('div');
 
-function getCell(index) {
-  const currentCell = new CurrentCell(index);
-  currentCell.field.addEventListener('click', () => {
-    currentCell.gotAim(index);
-    if (lost.textContent == 5) {
-      currentCell.gameOver();
-    }
+function clearInput() {
+  input.addEventListener('focus', (event) => {
+    event.preventDefault();
+    arr.forEach((e) => {
+      e.classList.remove('blanc');
+    });
+    input.value = '';
+    err.innerText = '';
   });
 }
-for (let index = 1; index < 16; index++) {
-  getCell(index);
-}
+
+button.addEventListener('click', (event) => {
+  event.preventDefault();
+  getCardType(input.value);
+  if (validateCard(input.value) === true) {
+    getCardType(input.value);
+    showCard(input.value);
+  } else {
+    err.innerText = 'Ошибка: введите корректный номер карты';
+    validation.appendChild(err);
+  }
+  clearInput();
+});
