@@ -1,72 +1,64 @@
-
-.cards_container {
-    display: flex;
-    padding-top: 10px;
-    padding-left: 30px;
-}
-.card {
-    margin-right: 5px;
-    width: 40px;
-    height: 25px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
+p {
+    color: black;
 }
 
-.mastercard {
-    background-image: url(/src/img/mastercard.jpg);
-}
-.mir {
-    background-image: url(/src/img/mir.jpg);
-}
-.visa {
-    background-image: url(/src/img/visa.png);
-}
-.ae {
-    background-image: url(/src/img/ae.png);
-}
-.discover {
-    background-image: url(/src/img/discover.jpg);
-}
-.maestro {
-    background-image: url(/src/img/maestro.png);
-}
-.diners-club {
-    background-image: url(/src/img/diners-club.png);
-}
-.jsb {
-    background-image: url(/src/img/jsb.png);
-}
-.blanc {
-    background-image: url(/src/img/blanc.png);
-}
-.validation {
+.form {
+    margin-top: 150px;
+    margin-left: 150px;
+    width: 200px;
     display: flex;
     flex-wrap: wrap;
-    width: 500px;
-    padding-top: 10px;
-    padding-left: 30px;
-}
-.val_field {
-    width: 200px;
-    height: 40px;
-    border: 1px solid rgb(192, 189, 189);
-    border-radius: 5px;
-}
-.val_field:focus {
-    outline: none;
-}
-.val_button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 130px;
-    height: 40px;
-    margin-left: 20px;
-    background-color: rgb(62, 161, 62);
-    color: white;
-    border-radius: 5px;
     font-family: Arial, Helvetica, sans-serif;
-    border: none; 
-    outline: none;
+}
+
+:invalid {
+    /* border: 1px solid red; */
+}
+
+.input {
+    display: inline-block;
+    width:250px;
+    /* padding: .375rem .75rem; */
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+}
+
+.btn {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    width:250px;
+    padding: .375rem .75rem;
+    margin-top: 30px;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    border: 1px solid #ced4da;
+    background-color: red;
+    color: white;
+}
+
+.form-control {
+    position: relative;
+    margin-bottom: 5px;
+}
+
+.form-error {
+  position: absolute;
+  padding: 5px 10px;
+  width: 200px;
+  background: #fff;
+  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.1);
+  z-index: 999;
+}
+.hidden {
+ display: none;
+}
+
+.form-error-title {
+  background: #e4e6e7;
 }
